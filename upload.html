@@ -25,7 +25,7 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
   reader.onload = function() {
     const base64 = reader.result.split(',')[1];
 
-    fetch("https://script.google.com/macros/s/AKfycbzJc3-5lwe5KBlyQU5EEs8PnQQBwKUD_5I-u0pOL6OGdIGdLcZ6TRGvq8TV-9lj2b6QVw/exec", {
+    fetch("https://script.google.com/macros/library/d/1zl2V6TQGI1aMN4gwj15NOJrv8w1Sb2uxwzwClBXefRsUA8pP1fD9YNc2/1", {
       method: "POST",
       body: new URLSearchParams({
         name: e.target.name.value,
@@ -46,3 +46,4 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
