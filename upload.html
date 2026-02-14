@@ -25,9 +25,11 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
   reader.onload = function() {
     const base64 = reader.result.split(',')[1];
 
-    fetch("https://script.google.com/macros/s/AKfycbzJc3-5lwe5KBlyQU5EEs8PnQQBwKUD_5I-u0pOL6OGdIGdLcZ6TRGvq8TV-9lj2b6QVw/exec", {
-      method: "POST",
-      body: new URLSearchParams({
+   fetch("https://script.google.com/macros/s/AKfycbzJc3-5lwe5KBlyQU5EEs8PnQQBwKUD_5I-u0pOL6OGdIGdLcZ6TRGvq8TV-9lj2b6QVw/exec", {
+  method: "POST",
+  mode: "no-cors",
+  body: new URLSearchParams({
+
         name: e.target.name.value,
         phone: e.target.phone.value,
         file: base64,
@@ -46,5 +48,6 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
 
 
