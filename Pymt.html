@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - PrintXdrop</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+  <div class="payment-container">
+
+    <h1 class="logo">PrintXdrop</h1>
+    <h2>Complete Your Payment</h2>
+
+    <img src="upi.png" alt="UPI QR Code" class="qr-image">
+
+    <div class="upi-box">
+      <span id="upi-id">7307266670@upi</span>
+      <button onclick="copyUPI()">Copy</button>
+    </div>
+
+    <p class="instruction">
+      Scan the QR or pay using the UPI ID above.<br>
+      After payment, click "Done".
+    </p>
+
+    <div class="button-group">
+      <button class="done-btn" onclick="showThankYou()">Done</button>
+      <button class="cancel-btn" onclick="goBack()">Cancel</button>
+    </div>
+
+  </div>
+
+  <div class="thank-you" id="thankYou">
+    <h2>🎉 Thank You for Your Payment!</h2>
+    <p>Please send payment screenshot on WhatsApp for confirmation.</p>
+  </div>
+
+<script>
+function copyUPI() {
+  const upiText = document.getElementById("upi-id").innerText;
+  navigator.clipboard.writeText(upiText);
+  alert("UPI ID copied!");
+}
+
+function showThankYou() {
+  document.querySelector(".payment-container").style.display = "none";
+  document.getElementById("thankYou").style.display = "block";
+}
+
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>
