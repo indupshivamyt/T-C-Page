@@ -33,15 +33,14 @@
   </div>
 
   <div class="thank-you" id="thankYou">
+    <div class="checkmark-circle">
+      <div class="checkmark"></div>
+    </div>
 
-  <div class="checkmark-circle">
-    <div class="checkmark"></div>
+    <h2>Payment Successful!</h2>
+    <p>Please send payment screenshot on WhatsApp for confirmation.</p>
+    <p id="countdown">Redirecting to WhatsApp in 3 seconds...</p>
   </div>
-
-  <h2>Payment Successful!</h2>
-  <p>Redirecting you back to homepage...</p>
-
-</div>
 
 <script>
 function copyUPI() {
@@ -54,13 +53,18 @@ function showThankYou() {
   document.querySelector(".payment-container").style.display = "none";
   document.getElementById("thankYou").style.display = "block";
 
-  // Open WhatsApp automatically
-  window.open("https://wa.me/7307266670", "_blank");
+  let seconds = 3;
+  const countdownText = document.getElementById("countdown");
 
-  // Redirect after 3 seconds
-  setTimeout(function () {
-    window.location.href = "index.html";
-  }, 3000);
+  const timer = setInterval(function () {
+    seconds--;
+    countdownText.innerText = "Redirecting to WhatsApp in " + seconds + " seconds...";
+
+    if (seconds === 0) {
+      clearInterval(timer);
+      window.location.href = "https://wa.me/917307266670?text=Hi%20I%20have%20completed%20payment%20for%20PrintXdrop";
+    }
+  }, 1000);
 }
 
 function goBack() {
