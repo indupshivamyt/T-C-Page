@@ -33,9 +33,13 @@
   </div>
 
   <div class="thank-you" id="thankYou">
-    <h2>🎉 Thank You for Your Payment!</h2>
-    <p1>Please send payment screenshot on WhatsApp for confirmation.</p1>
-<p2>Redirecting to whatsapp in 3 seconds...</p2>
+    <div class="checkmark-circle">
+      <div class="checkmark"></div>
+    </div>
+
+    <h2>Payment Successful!</h2>
+    <p>Please send payment screenshot on WhatsApp for confirmation.</p>
+    <p id="countdown">Redirecting to WhatsApp in 3 seconds...</p>
   </div>
 
 <script>
@@ -49,12 +53,20 @@ function showThankYou() {
   document.querySelector(".payment-container").style.display = "none";
   document.getElementById("thankYou").style.display = "block";
 
-  // Redirect to WhatsApp after 3 seconds
-  setTimeout(function () {
-    window.location.href = "https://wa.me/917307266670?text=Hi%20I%20have%20completed%20payment%20for%20PrintXdrop";
-  }, 3000);
+  let seconds = 3;
+  const countdownText = document.getElementById("countdown");
 
+  const timer = setInterval(function () {
+    seconds--;
+    countdownText.innerText = "Redirecting to WhatsApp in " + seconds + " seconds...";
+
+    if (seconds === 0) {
+      clearInterval(timer);
+      window.location.href = "https://wa.me/917307266670?text=Hi%20I%20have%20completed%20payment%20for%20PrintXdrop";
+    }
+  }, 1000);
 }
+
 function goBack() {
   window.history.back();
 }
