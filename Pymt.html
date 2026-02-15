@@ -47,6 +47,16 @@ function copyUPI() {
 function showThankYou() {
   document.querySelector(".payment-container").style.display = "none";
   document.getElementById("thankYou").style.display = "block";
+
+  // Open WhatsApp with pre-filled message after 1 second
+  setTimeout(function () {
+    window.open("https://wa.me/917307266670?text=Hi%20I%20have%20completed%20payment%20for%20PrintXdrop", "_blank");
+  }, 1000);
+
+  // Redirect after 3 seconds
+  setTimeout(function () {
+    window.location.href = "index.html";
+  }, 3000);
 }
 
 function goBack() {
