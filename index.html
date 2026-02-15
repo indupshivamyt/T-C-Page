@@ -53,6 +53,14 @@ function copyUPI() {
 function showThankYou() {
   document.querySelector(".payment-container").style.display = "none";
   document.getElementById("thankYou").style.display = "block";
+
+  // Open WhatsApp automatically
+  window.open("https://wa.me/91YOURNUMBER", "_blank");
+
+  // Redirect after 3 seconds
+  setTimeout(function () {
+    window.location.href = "index.html";
+  }, 3000);
 }
 
 function goBack() {
